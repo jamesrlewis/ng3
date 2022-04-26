@@ -1,0 +1,33 @@
+<header class="flex justify-between item-center px-4 py-2 bg-blue-100">
+  <div class="flex items-center">
+    <p><strong>Advanced Angular</strong></p>
+  </div>
+  <nav>
+    <a
+      class="link-button"
+      [routerLinkActive]="['active']"
+      [routerLink]="['users', 'onboard']"
+      >Create an Account</a
+    >
+    <a
+      class="link-button"
+      [routerLinkActive]="['active']"
+      [routerLink]="['dashboard']"
+      >Dashboard</a
+    >
+    <button
+      *ngIf="(userLoggedIn$ | async) === false"
+      (click)="logIn()"
+      class="link-button"
+    >
+      Log In, Yo!
+    </button>
+    <button
+      *ngIf="(userLoggedIn$ | async) === true"
+      (click)="logOut()"
+      class="link-button"
+    >
+      Log Out
+    </button>
+  </nav>
+</header>
